@@ -2,77 +2,639 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./style.css">
-  <link href="https://fonts.googleapis.com/css?family=Muli:700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/b5b3392b53.js" crossorigin="anonymous"></script>
-  <title>Secret City</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secret CIty BattleGround</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+
+    <!-- CSS ============================================ -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/animation.css" />
+    <link rel="stylesheet" href="assets/css/plugins/feature.css" />
+    <link rel="stylesheet" href="assets/css/plugins/magnify.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/slick.css" />
+    <link rel="stylesheet" href="assets/css/plugins/slick-theme.css" />
+    <link rel="stylesheet" href="assets/css/plugins/lightbox.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://res.cloudinary.com/veseylab/raw/upload/v1629862837/magicmouse/magic-mouse-1.2.css" />
 </head>
 
-<body>
-  <audio id="loading" src="music/sc loading screen.mp3" autoplay="true" hidden="true" loop="true"></audio>
-  <div class="bg-wrapper">
-    <div class="bg-img active"></div>
-    <div class="bg-img"></div>
-    <div class="bg-img"></div>
-    <div class="bg-img"></div>
-  </div>
-  <div class="box-wrapper">
-    <div class="box-gauche">
-    </div>
+<body class="active-dark-mode">
+    <main class="page-wrapper">
+        <!-- Start Header Top Area 
+        <div class="header-top-news bg-image1">
+            <div class="wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="inner">
+                                <div class="content">
+                                    <span class="rn-badge">New Event- GAMER DAYS</span>
+                                </div>
+                                <div class="right-button">
+                                    <a class="btn-read-more magic-hover magic-hover__square" href="./events/gamer-days/">
+                                        <span>Register Now
+											<i class="feather-arrow-right"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="icon-close">
+                <button class="close-button bgsection-activation">
+					<i class="feather-x"></i>
+				</button>
+            </div>
+        </div>
+         End Header Top Area  -->
+        <!-- Start Header Area  -->
+        <header class="
+					rn-header
+					header-default header-transparent header-sticky
+				">
+            <div class="container position-relative">
+                <div class="row align-items-center row--0">
+                    <div class="col-lg-3 col-md-6 col-4">
+                        <div class="logo">
+                            <a class="magic-hover magic-hover__square" href="">
+                                <img class="logo-light" src="assets/images/logo/logo.png" alt="Corporate Logo" />
+                                <img class="logo-dark" src="assets/images/logo/logo-dark.png" alt="Corporate Logo" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-6 col-8 position-static">
+                        <div class="header-right">
+                            <nav class="mainmenu-nav d-none d-lg-block">
+                                <ul class="mainmenu">
+                                    <li><a class="magic-hover magic-hover__square" href="">HOME</a></li>
+                                    <li><a class="magic-hover magic-hover__square" href="./about/">ABOUT</a></li>
+                                    <li><a class="magic-hover magic-hover__square" href="./events/">EVENTS(Coming)</a></li>
+                                    <!-- <li><a href="#">RESULTS</a></li> -->
+                                    <li>
+                                        <a class="magic-hover magic-hover__square" href="./contact/">CONTACT</a>
+                                    </li>
+                                    <li>
+                                        <a class="magic-hover magic-hover__square" href="./sponsor/">SPONSOR US</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <!-- Start Header Btn  -->
+                            <div class="header-btn">
+                                <a class="btn-default btn-small round magic-hover magic-hover__square" target="_blank" href="./register/">Join Us</a>
+                            </div>
+                            <!-- End Header Btn  -->
 
-    <div class="box-droite">
-      <div class="box-gauche-infos">
-        <img class="img-header" src="img/logo.png" height="200" width="200"></img>
-        <h1 class="name"><span class="color-title">Secret City BattleGround</span></h1>
-        <div class="separator1"></div>
-        <h3 class="name"><i class="fas fa-users" style="color: red;"></i> 32</h3>
-        <div class="separator1"></div>
-        <h3 class="name"><i class="fas fa-gamepad" style="color: red;"></i> BattleGround</span></h3>
-        <div class="separator1"></div>
-        <h3 class="name"><i class="fab fa-discord" style="color: red;"></i> s66nhMGQvm</span></h3>
-        <div class="separator1"></div>
-        <h3 class="name"><i class="fas fa-globe-americas" style="color: red;"></i> SCFRW</span></h3>
-        <div class="separator1"></div>
-        <span class="rgb-right"></span>
-    </div>
-  </div>
+                            <!-- Start Mobile-Menu-Bar -->
+                            <div class="
+										mobile-menu-bar
+										ml--5
+										d-block d-lg-none
+									">
+                                <div class="hamberger">
+                                    <button class="hamberger-button">
+										<i class="feather-menu"></i>
+									</button>
+                                </div>
+                            </div>
+                            <!-- Start Mobile-Menu-Bar -->
+                            <div id="my_switcher" class="my_switcher">
+                                <ul>
+                                    <li>
+                                        <a href="javascript: void(0);" data-theme="light" class="setColor light magic-hover magic-hover__square">
+                                            <img class="sun-image" src="assets/images/icons/sun-01.svg" alt="Sun images" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript: void(0);" data-theme="dark" class="setColor dark magic-hover magic-hover__square">
+                                            <img class="Victor Image" src="assets/images/icons/vector.svg" alt="Vector Images" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header Area  -->
+        <!-- Mobile View: Start Header Area  -->
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-  <script src="./script.js"></script>
-  <script>
-      var play = false;
-              var vid = document.getElementById("loading");
-              vid.volume = 0.1;
-              window.addEventListener('keyup', function(e)
-              {
-                  if (e.which == 69){
-                      vid.volume = Math.min(vid.volume + 0.1,1);
-                  } else if(e.which == 65){
-                      vid.volume = Math.max(vid.volume - 0.1,0);
-                  };
-              });
-      
-              var audio = document.querySelector('audio');
-      
-              if (audio) {
-      
-              window.addEventListener('keydown', function (event) {
-      
-              var key = event.which || event.keyCode;
-      
-              if (key === 32) { // spacebar
-      
-              event.preventDefault();
-      
-              audio.paused ? audio.play() : audio.pause();
-            
-          }
-      
-        });
-      }
-      </script>
+        <div class="popup-mobile-menu">
+            <div class="inner">
+                <div class="header-top">
+                    <div class="logo">
+                        <a class="magic-hover magic-hover__square" href="#">
+                            <img class="logo-light" src="assets/images/logo/logo.png" alt="Corporate Logo" />
+                            <img class="logo-dark" src="assets/images/logo/logo-dark.png" alt="Corporate Logo" />
+                        </a>
+                    </div>
+                    <div class="close-menu">
+                        <button class="close-button">
+							<i class="feather-x"></i>
+						</button>
+                    </div>
+                </div>
+                <ul class="mainmenu">
+                    <li><a class="magic-hover magic-hover__square" href="">HOME</a></li>
+                    <li><a class="magic-hover magic-hover__square" href="./about/">ABOUT</a></li>
+                    <li><a class="magic-hover magic-hover__square" href="./events/">EVENTS</a></li>
+                    <!-- <li><a href="#">RESULTS</a></li> -->
+                    <li><a class="magic-hover magic-hover__square" href="./contact/">CONTACT</a></li>
+                    <li><a class="magic-hover magic-hover__square" href="./sponsor/">SPONSOR US</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Mobile View: End Header Area  -->
+
+        <!-- Start Theme Style  -->
+        <div>
+            <div class="rn-gradient-circle"></div>
+            <div class="rn-gradient-circle theme-pink"></div>
+        </div>
+        <!-- End Theme Style  -->
+        <br /><br /><br />
+        <!-- Start Slider Area  -->
+        <div class="slider-area slider-style-7 height-750">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner text-center">
+                            <h2 class="title">Secret City</h2>
+                            <h2 class="title">BattleGround</h2>
+                            <div class="button-group mt--40 mt_sm--20">
+                                <a class="
+											btn-default btn-icon
+											round
+											btn-large
+                                            magic-hover magic-hover__square
+										" target="_blank" href="./directconnect/">Join Us
+									<i class="icon feather-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Slider Area  -->
+        <br /><br />
+        <!-- Start Seperator Area  -->
+        <div class="rbt-separator-mid">
+            <div class="container">
+                <hr class="rbt-separator m-0" />
+            </div>
+        </div>
+        <!-- End Seperator Area  -->
+        <br /><br />
+        <!-- Start Service-6 Area  -->
+        <div class="rn-service-area rn-section-gapBottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
+                            <h4 class="subtitle">
+                                <span class="theme-gradient">About Us</span>
+                            </h4>
+                            <h2 class="title w-600 mb--20">About</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row--15 service-wrapper">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
+                        <div class="
+									service service__style--1
+									bg-color-blackest
+									radius
+									mt--25
+									text-center
+									rbt-border-none
+								">
+                            <div class="icon">
+                                <i class="feather-terminal"></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title w-600">
+                                    <a class="magic-hover magic-hover__square" href="https://discord.gg/s66nhMGQvm">Secret City Battleground</a>
+                                </h4>
+                                <p class="description b1 color-gray mb--0">
+                                    Our Secret City Battleground is a bit like open source. If you want you can give your car or script to our server. Those of you who want to contribute can join our server. You will get the rest of the information there. ❤️ [ QBCORE & CFX ]
+                                    <br>If you want to open the server of another game, you can contact us. We will try to help you.  Example [ Minecraft / SA-MP / Rust ]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700" data-sal-delay="200">
+                        <div class="
+									service service__style--1
+									bg-color-blackest
+									radius
+									mt--25
+									text-center
+									rbt-border-none
+								">
+                            <div class="icon">
+                                <i class="feather-youtube"></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title w-600">
+                                    <a class="magic-hover magic-hover__square" href="https://www.youtube.com/c/GamingGeeksYouTube">YouTuber Facilities</a>
+                                </h4>
+                                <p class="description b1 color-gray mb--0">
+                                    Daily Different Videos are uploaded on YouTube. You Will Get Free Custom Animated Cars and Other Facilities
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Service-6 Area  -->
+
+        <!-- Start Seperator Area  -->
+        <div class="rbt-separator-mid">
+            <div class="container">
+                <hr class="rbt-separator m-0" />
+            </div>
+        </div>
+        <!-- End Seperator Area  -->
+
+        <!-- Start Events -->
+
+        <!--
+        <div class="rwt-timeline-area rn-section-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
+                            <h4 class="subtitle">
+                                <span class="theme-gradient">Events</span>
+                            </h4>
+                            <h2 class="title w-600 mb--20">
+                                Our Recent Events.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1 mt--50">
+                        <div class="timeline-style-two bg-color-blackest">
+                            <div class="row row--0">
+                                <div class="
+											col-lg-3 col-md-3
+											rn-timeline-single
+											no-gradient
+										">
+                                    <div class="rn-timeline">
+                                        <h6 class="title" data-sal="slide-up" data-sal-duration="400" data-sal-delay="200">
+                                            Gamers Day
+                                        </h6>
+                                        <div class="progress-line">
+                                            <div class="line-inner"></div>
+                                        </div>
+                                        <div class="progress-dot">
+                                            <div class="dot-level">
+                                                <div class="dot-inner"></div>
+                                            </div>
+                                        </div>
+                                        <p class="description" data-sal="slide-up" data-sal-duration="400" data-sal-delay="300">
+                                            November
+                                        </p>
+                                        <p class="description" data-sal="slide-up" data-sal-duration="400" data-sal-delay="300"></p>
+                                    </div>
+                                </div>
+                                <div class="
+											col-lg-3 col-md-3
+											rn-timeline-single
+											no-gradient
+										">
+                                    <div class="rn-timeline">
+                                        <h6 class="title" data-sal="slide-up" data-sal-duration="400" data-sal-delay="200">
+                                            Game Development
+                                        </h6>
+
+                                        <div class="progress-line">
+                                            <div class="line-inner"></div>
+                                        </div>
+                                        <div class="progress-dot">
+                                            <div class="dot-level">
+                                                <div class="dot-inner"></div>
+                                            </div>
+                                        </div>
+                                        <p class="description" data-sal="slide-up" data-sal-duration="400" data-sal-delay="300">
+                                            September
+                                        </p>
+                                        <p class="description" data-sal="slide-up" data-sal-duration="400" data-sal-delay="300">
+                                            Questionaire on Game Development
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="
+											col-lg-3 col-md-3
+											rn-timeline-single
+											no-gradient
+										">
+                                    <div class="rn-timeline">
+                                        <h6 class="title" data-sal="slide-up" data-sal-duration="400" data-sal-delay="200">
+                                            BGMI Event
+                                        </h6>
+                                        <div class="progress-line">
+                                            <div class="line-inner"></div>
+                                        </div>
+                                        <div class="progress-dot">
+                                            <div class="dot-level">
+                                                <div class="dot-inner"></div>
+                                            </div>
+                                        </div>
+                                        <p class="description" data-sal="slide-up" data-sal-duration="400" data-sal-delay="300">
+                                            August
+                                        </p>
+                                        <p class="description" data-sal="slide-up" data-sal-duration="400" data-sal-delay="300">
+                                            Solo BGMI Event
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="
+											col-lg-3 col-md-3
+											rn-timeline-single
+											no-gradient
+										">
+                                    <div class="rn-timeline">
+                                        <h6 class="title" data-sal="slide-up" data-sal-duration="400" data-sal-delay="200">
+                                            Trip
+                                        </h6>
+                                        <div class="progress-line">
+                                            <div class="line-inner"></div>
+                                        </div>
+                                        <div class="progress-dot">
+                                            <div class="dot-level">
+                                                <div class="dot-inner"></div>
+                                            </div>
+                                        </div>
+                                        <p class="description" data-sal="slide-up" data-sal-duration="400" data-sal-delay="300">
+                                            August
+                                        </p>
+                                        <p class="description" data-sal="slide-up" data-sal-duration="400" data-sal-delay="300">
+                                            Amazing Trip To
+                                            <br />Jaipur-Pushkar-Ajmer
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row--15">
+                    <div class="col-lg-12">
+                        <div class="rwt-load-more text-center mt--60">
+                            <a href="./events/" class="btn btn-default btn-large btn-icon magic-hover magic-hover__square">
+                                <span>Browse All Events
+									<i class="icon feather-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        -->
+        <!-- End Eventslaylist -->
+        <!-- Start Seperator Area  -->
+        <div class="rbt-separator-mid">
+            <div class="container">
+                <hr class="rbt-separator m-0" />
+            </div>
+        </div>
+        <!-- End Seperator Area  -->
+
+        <!-- Start Playlist Area  -->
+        <div class="
+					rwt-portfolio-area
+					rn-section-gap
+					masonary-wrapper-activation
+				">
+            <div class="container-fluid plr--30">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center mb--50" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
+                            <h4 class="subtitle">
+                                <span class="theme-gradient">Playlists</span>
+                            </h4>
+                            <h2 class="title w-600 mb--20">
+                                YouTube Playlists
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="portfolio-items grid-metro3 mesonry-list">
+                            <div class="resizer"></div>
+                            <!-- Start Single Portfolio  -->
+                            <div class="portfolio-3 box-grid-layout cat--1 cat--4">
+                                <div class="rwt-card portfolio">
+                                    <div class="inner"> 
+                                        <div class="thumbnail">
+                                            <figure class="card-image">
+                                                <a class=" magic-hover magic-hover__square" href="https://www.youtube.com/watch?v=4m0SRzU9o7k" target="_blank">
+                                                    <img src="assets/images/Youtube Thumbnails/maxresdefault.jpg" alt="Days Gone">
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <div class="content">
+                                            <h5 class="title mb--10 text-center">
+                                                <a class=" magic-hover magic-hover__square" href="https://www.youtube.com/watch?v=4m0SRzU9o7k" target="_blank">Kawasaki Ninjah 2</a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Start Single Portfolio  -->
+
+                            <!-- Start Single Portfolio  -->
+                            <div class="portfolio-3 box-grid-layout cat--2 cat--3">
+                                <div class="rwt-card portfolio">
+                                    <div class="inner">
+                                        <div class="thumbnail">
+                                            <figure class="card-image">
+                                                <a class="magic-hover magic-hover__square" href="https://www.youtube.com/c/MrImran1/videos" target="_blank">
+                                                    <img src="assets/images/Youtube Thumbnails/download.png" alt="ASSASSIN'S CREED SYNDICATE">
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <div class="content">
+                                            <h5 class="title mb--10 text-center">
+                                                <a class="magic-hover magic-hover__square" href="https://www.youtube.com/c/MrImran1/videos" target="_blank">Mr Imran</a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Start Single Portfolio  -->
+
+                            
+                            <!-- G:\secret city\Website\Single Play List -->
+                
+                <!-- Start Load More Button  -->
+                <div class="row row--15">
+                    <div class="col-lg-12">
+                        <div class="rwt-load-more text-center mt--60">
+                            <a href="./youtube" class="btn btn-default btn-large btn-icon magic-hover magic-hover__square">
+                                <span>Load More
+									<span class="icon feather-loader"></span></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Load More Button  -->
+            </div>
+        </div>
+        <!-- End Playlist Area  -->
+
+        <!-- Start Seperator Area  -->
+        <div class="rbt-separator-mid">
+            <div class="container">
+                <hr class="rbt-separator m-0" />
+            </div>
+        </div>
+        <!-- End Seperator Area  -->
+
+        <!-- Start Seperator Area  -->
+        <div class="rbt-separator-mid">
+            <div class="container">
+                <!-- <hr class="rbt-separator m-0"> -->
+            </div>
+        </div>
+        <!-- End Seperator Area  -->
+
+        <div class="rwt-brand-area rn-section-gap">
+            <div class="container">
+                <div class="row">
+                    <h4 class="subtitle">
+                        <span class="theme-gradient">Let's Talk</span>
+                    </h4>
+                    <!-- <div class="col-lg-1"></div> -->
+                    <div class="col-lg-9 col-md-12">
+                        <div class="section-title text-left" data-sal-duration="700" data-sal-delay="100">
+                            <h2 class="title w-600 mb--20">
+                                Want to contribute?
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12" data-sal-duration="400" data-sal-delay="150">
+                        <div class="
+									call-to-btn
+									text-left
+									mt_sm--20
+									text-lg-right
+								">
+                            <a class="btn-default magic-hover magic-hover__square" href="./contact/">Contact Us
+								<i class="feather-arrow-right"></i>
+							</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Start Footer-->
+        <footer class="copyright-area copyright-style-one">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+						<div class="text-center">
+							<p class="copyright-text">
+								Copyright © Secret City  <span id="year">2021-2022</span>
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-5 col-md-6 col-sm-12 col-10">
+						<ul class="social-icon social-default">
+							<li data-sal="slide-up" data-sal-duration="400" data-sal-delay="200">
+								<a  class="magic-hover magic-hover__square"  href="https://www.youtube.com/c/MrImran1">
+									<i class="fa-brands fa-youtube"></i>
+								</a>
+							</li>
+							<!--<li data-sal="slide-up" data-sal-duration="400" data-sal-delay="400">
+								<a  class="magic-hover magic-hover__square"  href="http://instagram.com/gamers.platform_">
+									<i class="fa-brands fa-instagram"></i>
+								</a>
+							</li>
+							<li data-sal="slide-up" data-sal-duration="400" data-sal-delay="500">
+								<a  class="magic-hover magic-hover__square" href="https://www.linkedin.com/company/gaming-geeks">
+									<i class="fa-brands fa-linkedin"></i>
+								</a>
+							</li>
+							<li data-sal="slide-up" data-sal-duration="400" data-sal-delay="500">
+								<a  class="magic-hover magic-hover__square" href="https://chat.whatsapp.com/CB1DwNyUm7C35wFi0IC5JE">
+									<i class="fa-brands fa-whatsapp"></i>
+								</a>-->
+							</li>
+							<li data-sal="slide-up" data-sal-duration="400" data-sal-delay="500">
+								<a  class="magic-hover magic-hover__square" href="https://discord.gg/s66nhMGQvm">
+									<i class="fa-brands fa-discord"></i>
+								</a>
+							</li>
+							<!--<li data-sal="slide-up" data-sal-duration="400" data-sal-delay="500">
+								<a  class="magic-hover magic-hover__square" href="https://t.me/ggeeks">
+									<i class="fa-brands fa-telegram"></i> -->
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+        <!-- End Footer Area  -->
+    </main>
+
+    <!-- All Scripts  -->
+    <!-- Start Top To Bottom Area  -->
+    <div class="rn-back-top magic-hover magic-hover__square">
+        <i class="feather-arrow-up"></i>
+    </div>
+    <!-- End Top To Bottom Area  -->
+    <!-- JS
+============================================ -->
+    <script src="assets/js/vendor/modernizr.min.js"></script>
+    <script src="assets/js/vendor/jquery.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="assets/js/vendor/waypoint.min.js"></script>
+    <script src="assets/js/vendor/wow.min.js"></script>
+    <script src="assets/js/vendor/counterup.min.js"></script>
+    <script src="assets/js/vendor/feather.min.js"></script>
+    <script src="assets/js/vendor/sal.min.js"></script>
+    <script src="assets/js/vendor/masonry.js"></script>
+    <script src="assets/js/vendor/imageloaded.js"></script>
+    <script src="assets/js/vendor/magnify.min.js"></script>
+    <script src="assets/js/vendor/lightbox.js"></script>
+    <script src="assets/js/vendor/slick.min.js"></script>
+    <script src="assets/js/vendor/easypie.js"></script>
+    <script src="assets/js/vendor/text-type.js"></script>
+    <script src="assets/js/vendor/jquery.style.swicher.js"></script>
+    <script src="assets/js/vendor/js.cookie.js"></script>
+    <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1629862837/magicmouse/magic_mouse-1.2.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+    <script type="text/javascript">
+        options = {
+            cursorOuter: "circle-basic",
+            hoverEffect: "pointer-blur",
+            color: "orange",
+            hoverItemMove: false,
+            defaultCursor: false,
+            outerWidth: 41,
+            outerHeight: 41,
+        };
+        magicMouse(options);
+    </script>
 </body>
 
 </html>
