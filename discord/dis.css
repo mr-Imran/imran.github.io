@@ -1,0 +1,27 @@
+.body{
+    background-color: aqua;
+
+}
+
+.discord{
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: Bold;
+    color: Red;
+    align-items: center;
+    text-align: center;
+    border-radius: 0rem;
+    overflow: none;
+    outline: black;
+    pointer-events: stroke;
+}
+
+.scframe{
+    text-align: center;
+    height: 1000;
+
+}
+
+.iframe{
+    height: max-content;
+}
