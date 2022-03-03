@@ -1,0 +1,560 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - WebGL Apple Cards</title>
+  
+  
+  
+  
+<style>
+body {
+    padding: 0;
+    margin: 0;
+    background: radial-gradient(circle at top left, #161231, #161231);
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 4rem;
+}
+
+#album-rotator {
+    width: 1000px;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    word-break: keep-all;
+    padding: 2rem 0;
+}
+#album-rotator-holder {
+    position: relative;
+    user-select: none;
+    will-change: transform;
+    /* transition: all 0.01s ease-out; */
+    /* transition: all 0.01s linear; */
+}
+
+div#album-rotator-holder {}
+#album-rotator:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(-90deg, #161231 5%, transparent 40%);
+}
+.album-item {
+    word-break: keep-all;
+    background: black;
+    box-shadow: 0 2px 30px rgba(0,0,0,0.5);
+    position: relative;
+    width: 250px;
+    -webkit-user-drag: none;
+    user-drag: none;
+    height: 300px;
+    user-select: none;
+    border-radius: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 3rem 0 0;
+    transition: all 0.2s ease-out;
+    transform: scale(1);
+}
+
+.album-item:hover {
+    transform: scale(1.02);
+}
+.album-details {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+    padding: 1rem;
+    white-space: initial;
+    float: left;
+    box-sizing: border-box;
+    color: white;
+    height: 100%;
+    font-size: 2.5rem;
+    font-weight: 600;
+    z-index: 99;
+}
+.title {
+    font-weight: 900;
+    display: inline-block;
+    width: 100%;
+}
+.subtitle {
+    font-weight: 100;
+    line-height: 1.25rem;
+}
+.subtext {
+    font-size: 1.1167rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1.25rem 1rem;
+    width: 100%;
+    white-space: initial;
+    letter-spacing: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+}
+.icon {
+    font-size: 1rem;
+    line-height: 1rem;
+    display: block;
+    padding: 0 0 0.5rem 0;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <script src="https://kit.fontawesome.com/48764efa36.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <h1>Select Your Path</h1>
+    <div id="album-rotator">
+        <div id="album-rotator-holder">
+            <a target="_top" class="album-item" href="https://twitter.com/smpnjn">
+                <span class="album-details">
+                    <span class="icon"><i class="far fa-at"></i> smpnjn</span>
+                    <span class="title">Click to</span>
+                    <span class="subtitle">Follow</span>
+                    <span class="subtext">On Twitter</span>
+                </span>
+            </a>
+            <a target="_top" class="album-item" href="https://fjolt.com/article/apple-cards-webl-gl-javascript">
+                <span class="album-details">
+                    <span class="title">Read the</span>
+                    <span class="subtitle">Tutorial</span>
+                    <span class="subtext">View tutorial for this effect</span>
+                </span>
+            </a>
+            <a target="_top" class="album-item" href="https://twitter.com/smpnjn">
+                <span class="album-details">
+                    <span class="title">Finally</span>
+                    <span class="subtitle">We Go</span>
+                    <span class="subtext">Some text to describe this item</span>
+                </span>
+            </a>
+            <a target="_top" class="album-item" href="https://twitter.com/smpnjn">
+                <span class="album-details">
+                    <span class="title">And</span>
+                    <span class="subtitle">One More</span>
+                    <span class="subtext">Some text to describe this item</span>
+                </span>
+            </a>
+            <a class="album-item" href="https://twitter.com/smpnjn">
+                <span class="album-details">
+                    <span class="title">And</span>
+                    <span class="subtitle">Finally..</span>
+                    <span class="subtext">Some text to describe this item</span>
+                </span>
+            </a>
+        </div>
+    </div>
+<script id="noise" type="x-shader/x-fragment">
+  #define NUM_OCTAVES 5
+
+vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+float rand(float n){return fract(sin(n) * 43758.5453123);}
+float rand(vec2 n) { 
+    return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
+}
+float noise(float p){
+    float fl = floor(p);
+  float fc = fract(p);
+    return mix(rand(fl), rand(fl + 1.0), fc);
+}
+float noise(vec2 n) {
+    const vec2 d = vec2(0.0, 1.0);
+  vec2 b = floor(n), f = smoothstep(vec2(0.0), vec2(1.0), fract(n));
+    return mix(mix(rand(b), rand(b + d.yx), f.x), mix(rand(b + d.xy), rand(b + d.yy), f.x), f.y);
+}
+
+float snoise(vec2 v) {
+    const vec4 C = vec4(0.211324865405187,  // (3.0-sqrt(3.0))/6.0
+                        0.366025403784439,  // 0.5*(sqrt(3.0)-1.0)
+                        -0.577350269189626,  // -1.0 + 2.0 * C.x
+                        0.024390243902439); // 1.0 / 41.0
+    vec2 i  = floor(v + dot(v, C.yy) );
+    vec2 x0 = v -   i + dot(i, C.xx);
+    vec2 i1;
+    i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+    vec4 x12 = x0.xyxy + C.xxzz;
+    x12.xy -= i1;
+    i = mod289(i); // Avoid truncation effects in permutation
+    vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
+        + i.x + vec3(0.0, i1.x, 1.0 ));
+
+    vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+    m = m*m ;
+    m = m*m ;
+    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+    vec3 h = abs(x) - 0.5;
+    vec3 ox = floor(x + 0.5);
+    vec3 a0 = x - ox;
+    m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+    vec3 g;
+    g.x  = a0.x  * x0.x  + h.x  * x0.y;
+    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+    return 130.0 * dot(m, g);
+}
+const mat2 m2 = mat2(0.8,-0.6,0.6,0.8);
+
+#define NB_OCTAVES 8
+#define LACUNARITY 10.0
+#define GAIN 0.5
+
+float fbm(in vec2 p) {
+    float total = 0.0,
+        frequency = 1.0,
+        amplitude = 1.0;
+    
+    for (int i = 0; i < NB_OCTAVES; i++) {
+        total += snoise(p * frequency) * amplitude;
+        frequency *= LACUNARITY;
+        amplitude *= GAIN;
+    }    
+    return total;
+}
+
+</script>
+<script id="vertex" type="x-shader/x-fragment">
+  uniform float u_time;
+uniform float u_height;
+uniform vec2 u_rand;
+
+float xDistortion;
+float yDistortion;
+
+varying float vDistortion;
+varying vec2 vUv;
+
+void main() {
+    vUv = uv;
+    vDistortion = snoise(vUv.xx * 3. - vec2(u_time / u_rand.x, u_time / u_rand.x) + cos(vUv.yy) * u_rand.y) * u_height;
+    xDistortion = snoise(vUv.xx * 1.) * u_height * u_rand.x / 10.;
+    vec3 pos = position;
+    pos.z += (vDistortion * 55.);
+    pos.x += (xDistortion * 55.);
+    pos.y += (sin(vUv.y) * 55.);
+    
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+}
+
+</script>
+<script id="fragment" type="x-shader/x-fragment">
+  vec3 rgb(float r, float g, float b) {
+    return vec3(r / 255., g / 255., b / 255.);
+}
+vec3 rgb(float c) {
+    return vec3(c / 255., c / 255., c / 255.);
+}
+
+uniform vec3 u_lowColor;
+uniform vec3 u_highColor;
+uniform float u_time;
+
+varying vec2 vUv;
+varying float vDistortion;
+varying float xDistortion;
+
+void main() {
+    vec3 highColor = rgb(u_highColor.r, u_highColor.g, u_highColor.b);
+    
+    vec3 colorMap = rgb(u_lowColor.r, u_lowColor.g, u_lowColor.b);
+
+    colorMap = mix(colorMap, highColor, vDistortion);
+    
+    gl_FragColor = vec4(colorMap, 1.);
+}
+
+  </script>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  
+      <script id="rendered-js" type="module">
+import * as THREE from 'https://cdn.skypack.dev/three@v0.122.0';
+
+// Helper functions
+const rgb = function (r, g, b) {
+  return new THREE.Vector3(r, g, b);
+};
+const loader = function (path, texture) {
+  return new Promise((resolve, reject) => {
+    let loader = new THREE.FileLoader();
+    if (typeof texture !== "undefined") {
+      loader = new THREE.TextureLoader();
+    }
+    loader.load(path, item => resolve(item));
+  });
+};
+const randomInteger = function (min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+// -- End Helper Functions
+
+const config = {
+  individualItem: '.album-item', // class of individual item
+  carouselWidth: 1000, // in px
+  carouselId: '#album-rotator', // carousel selector
+  carouselHolderId: '#album-rotator-holder', // carousel should be <div id="carouselId"><div id="carouselHolderId">{items}</div></div>
+  colors: [
+  // Define colors for each item. If more items than colors, then first color will be used as default
+  // Format { low: rgb(), high: rgb() for each color }
+  { low: rgb(0, 114, 255), high: rgb(48, 0, 255) },
+  { low: rgb(236, 166, 15), high: rgb(233, 104, 0) },
+  { low: rgb(43, 75, 235), high: rgb(213, 51, 248) },
+  { low: rgb(175, 49, 49), high: rgb(123, 16, 16) }] };
+
+
+
+// Async function for generating webGL waves
+const createWave = async function (selector, colors) {
+  if (document.querySelectorAll(selector) !== null && document.querySelectorAll(selector).length > 0) {
+    // Import all the fragment and vertex shaders
+    const noise = document.getElementById('noise').textContent;
+    const fragment = document.getElementById('fragment').textContent;
+    const vertex = document.getElementById('vertex').textContent;
+    let i = 0;
+    // For each of the selector elements
+    document.querySelectorAll(selector).forEach(function (item) {
+      // Create a renderer
+
+      const newCanvas = document.createElement('canvas');
+      newCanvas.id = `canvas-${i}`;
+      item.appendChild(newCanvas);
+
+      const renderer = new THREE.WebGLRenderer({
+        powerPreference: "high-performance",
+        antialias: true,
+        alpha: true,
+        canvas: document.getElementById(`canvas-${i}`) });
+
+
+
+      // Get el width and height
+      const elWidth = parseFloat(window.getComputedStyle(item).width);
+      const elHeight = parseFloat(window.getComputedStyle(item).height);
+
+      // Set sizes and set scene/camera
+      renderer.setSize(elWidth, elHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, elWidth / elHeight, 0.1, 1000);
+
+      // Check on colors to use
+      let high = colors[0].high;
+      let low = colors[0].low;
+      if (typeof colors[i] !== "undefined") {
+        high = colors[i].high;
+        low = colors[i].low;
+        ++i;
+      }
+
+      // And use the high color for the subtext.
+      if (item.querySelector('.subtext') !== null) {
+        item.querySelector('.subtext').style.background = `rgba(${high.x},${high.y},${high.z},0.75)`;
+      }
+
+      // Create a plane, and pass that through to our shaders
+      let geometry = new THREE.PlaneGeometry(600, 600, 100, 100);
+      let material = new THREE.ShaderMaterial({
+        uniforms: {
+          u_lowColor: { type: 'v3', value: low },
+          u_highColor: { type: 'v3', value: high },
+          u_time: { type: 'f', value: 0 },
+          u_height: { type: 'f', value: 1 },
+          u_rand: { type: 'f', value: new THREE.Vector2(randomInteger(6, 10), randomInteger(8, 10)) } },
+
+        fragmentShader: noise + fragment,
+        vertexShader: noise + vertex });
+
+
+      // Create the mesh and position appropriately
+      let mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(0, 0, -300);
+      mesh.material.needsUpdate = true;
+      scene.add(mesh);
+
+      // On hover effects for each item
+      let enterTimer, exitTimer;
+      item.addEventListener('mouseenter', function (e) {
+        if (typeof exitTimer !== "undefined") {
+          clearTimeout(exitTimer);
+        }
+        enterTimer = setInterval(function () {
+          if (mesh.material.uniforms.u_height.value >= 0.5) {
+            mesh.material.uniforms.u_height.value -= 0.05;
+          } else {
+            clearTimeout(enterTimer);
+          }
+        }, 10);
+      });
+      item.addEventListener('mouseleave', function (e) {
+        if (typeof enterTimer !== "undefined") {
+          clearTimeout(enterTimer);
+        }
+        exitTimer = setInterval(function () {
+          if (mesh.material.uniforms.u_height.value < 1) {
+            mesh.material.uniforms.u_height.value += 0.05;
+          } else {
+            clearTimeout(exitTimer);
+          }
+        }, 10);
+      });
+
+      // Render
+      renderer.render(scene, camera);
+      let t = 0;
+
+      // Animate
+      const animate = function () {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+        mesh.material.uniforms.u_time.value = t;
+        t = t + 0.02;
+      };
+      animate();
+    });
+  }
+};
+
+document.addEventListener("DOMContentLoaded", function (e) {
+  createWave(config.individualItem, config.colors);
+
+  // Get items
+  const el = document.querySelector(config.individualItem);
+  const elWidth = parseFloat(window.getComputedStyle(el).width) + parseFloat(window.getComputedStyle(el).marginLeft) + parseFloat(window.getComputedStyle(el).marginRight);
+
+  // Track carousel
+  let mousedown = false;
+  let movement = false;
+  let initialPosition = 0;
+  let selectedItem;
+  let currentDelta = 0;
+
+  document.querySelectorAll(config.carouselId).forEach(function (item) {
+    item.style.width = `${config.carouselWidth}px`;
+  });
+
+  document.querySelectorAll(config.carouselId).forEach(function (item) {
+    item.addEventListener('pointerdown', function (e) {
+      mousedown = true;
+      selectedItem = item;
+      initialPosition = e.pageX;
+      currentDelta = parseFloat(item.querySelector(config.carouselHolderId).style.transform.split('translateX(')[1]) || 0;
+    });
+  });
+
+  const scrollCarousel = function (change, currentDelta, selectedItem) {
+    let numberThatFit = Math.floor(config.carouselWidth / elWidth);
+    let newDelta = currentDelta + change;
+    let elLength = selectedItem.querySelectorAll(config.individualItem).length - numberThatFit;
+    if (newDelta <= 0 && newDelta >= -elWidth * elLength) {
+      selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(${newDelta}px)`;
+    } else {
+      if (newDelta <= -elWidth * elLength) {
+        selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(${-elWidth * elLength}px)`;
+      } else if (newDelta >= 0) {
+        selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(0px)`;
+      }
+    }
+  };
+
+  document.body.addEventListener('pointermove', function (e) {
+    if (mousedown == true && typeof selectedItem !== "undefined") {
+      let change = -(initialPosition - e.pageX);
+      scrollCarousel(change, currentDelta, document.body);
+      document.querySelectorAll(`${config.carouselId} a`).forEach(function (item) {
+        item.style.pointerEvents = 'none';
+      });
+      movement = true;
+    }
+  });
+
+  ['pointerup', 'mouseleave'].forEach(function (item) {
+    document.body.addEventListener(item, function (e) {
+      selectedItem = undefined;
+      movement = false;
+      document.querySelectorAll(`${config.carouselId} a`).forEach(function (item) {
+        item.style.pointerEvents = 'all';
+      });
+    });
+  });
+
+  document.querySelectorAll(config.carouselId).forEach(function (item) {
+    let trigger = 0;
+    item.addEventListener('wheel', function (e) {
+      if (trigger !== 1) {
+        ++trigger;
+      } else {
+        let change = e.deltaX * -3;
+        let currentDelta = parseFloat(item.querySelector(config.carouselHolderId).style.transform.split('translateX(')[1]) || 0;
+        scrollCarousel(change, currentDelta, item);
+        trigger = 0;
+      }
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return false;
+    });
+  });
+});
+    </script>
+
+  
+
+</body>
+
+</html>
+ 
