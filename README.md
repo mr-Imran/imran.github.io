@@ -1,1 +1,1 @@
-Secret City BAttleGround Website 
+Secret City BattleGround Website 
