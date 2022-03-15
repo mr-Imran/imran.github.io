@@ -13,249 +13,287 @@
 <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
 
 <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-
-
-  <title>Secret City Battleground</title>
+<title>CodePen - Flex Hover Slider | HTML + CSS + jQuery</title>
   
   
   
   
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-
-*,
-*::before,
-*::after {
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
 
-:root {
-  --background-color: #bbdefb;
-  --blue-50: #e3f2fd;
-  --blue-100: #bbdefb;
-  --blue-A700: #2962ff;
-  --green-50: #e8f5e9;
-  --green-100: #c8e6c9;
-  --green-A700: #00c853;
-  --purple-50: #f3e5f5;
-  --purple-100: #e1bee7;
-  --purple-A700: #aa00ff;
-  --orange-50: #fff3e0;
-  --orange-100: #ffe0b2;
-  --orange-A700: #ff6d00;
-  --orange-700: #f57c00;
-  --grey-900: #212121;
-  --white: #ffffff;
-  --round-button-active-color: #212121;
-  --translate-main-slider: 100%;
-  --main-slider-color: #e3f2fd;
-  --translate-filters-slider: 0;
-  --filters-container-height: 3.8rem;
-  --filters-wrapper-opacity: 1;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.4s ease-in-out;
-  background-color: var(--background-color);
-}
-
-button {
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-  outline: none;
-}
-
-nav.amazing-tabs {
-  background-color: var(--white);
-  border-radius: 2.5rem;
-  user-select: none;
-  padding-top: 1rem;
-}
-
-.main-tabs-container {
-  padding: 0 1rem 1rem 1rem;
-}
-
-.main-tabs-wrapper {
-  position: relative;
-}
-
-ul.main-tabs,
-ul.filter-tabs {
-  list-style-type: none;
-  display: flex;
-}
-
-ul.main-tabs li {
-  display: inline-flex;
-  position: relative;
-  padding: 1.5rem;
-  z-index: 1;
-}
-
-.avatar,
-.avatar img {
-  height: 4rem;
-  width: 4rem;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.avatar img {
-  object-fit: cover;
-}
-
-.round-button {
-  height: 4.8rem;
-  width: 4.8rem;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--grey-900);
-  transition: color 0.2s ease-in-out;
-}
-
-.round-button:hover,
-.round-button.active {
-  color: var(--round-button-active-color);
-}
-
-.round-button svg {
-  pointer-events: none;
-  height: 2.8rem;
-  width: 2.8rem;
-  transform: translate(0, 0);
-}
-
-.main-slider {
-  pointer-events: none;
+.flex-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  padding: 1.5rem;
-  z-index: 0;
-  transition: transform 0.4s ease-in-out;
-  transform: translateX(var(--translate-main-slider));
+  height: 100vh;
+  width: 100%;
+  display: -webkit-flex;
+  /* Safari */
+  display: flex;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
 }
 
-.main-slider-circle {
-  height: 4.8rem;
-  width: 4.8rem;
-  border-radius: 50%;
-  transition: background-color 0.4s ease-in-out;
-  background-color: var(--main-slider-color);
+.flex-title {
+  color: #f1f1f1;
+  position: relative;
+  font-size: 6vw;
+  margin: auto;
+  text-align: center;
+  transform: rotate(90deg);
+  top: 15%;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+@media screen and (max-width: 768px) {
+  .flex-title {
+    transform: rotate(0deg) !important;
+  }
 }
 
-.animate-jello {
-  animation: jello-horizontal 0.9s both;
+.flex-about {
+  opacity: 0;
+  color: #f1f1f1;
+  position: relative;
+  width: 70%;
+  font-size: 2vw;
+  padding: 5%;
+  top: 20%;
+  border: 2px solid #f1f1f1;
+  border-radius: 10px;
+  line-height: 1.3;
+  margin: auto;
+  text-align: left;
+  transform: rotate(0deg);
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+@media screen and (max-width: 768px) {
+  .flex-about {
+    padding: 0%;
+    border: 0px solid #f1f1f1;
+  }
 }
 
-@keyframes jello-horizontal {
+.flex-slide {
+  -webkit-flex: 1;
+  /* Safari 6.1+ */
+  -ms-flex: 1;
+  /* IE 10 */
+  flex: 1;
+  cursor: pointer;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+@media screen and (max-width: 768px) {
+  .flex-slide {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .flex-slide p {
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .flex-slide ul li {
+    font-size: 2em;
+  }
+}
+
+.flex-slide:hover {
+  -webkit-flex-grow: 3;
+  flex-grow: 3;
+}
+
+.home {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/lake-macquarie-71208_1920.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+@media screen and (min-width: 768px) {
+  .home {
+    animation: aboutFlexSlide 3s 1;
+    animation-delay: 0s;
+  }
+}
+
+@keyframes aboutFlexSlide {
   0% {
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  40% {
-    transform: scale3d(0.75, 1.25, 1);
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
   }
   50% {
-    transform: scale3d(1.15, 0.85, 1);
-  }
-  65% {
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  75% {
-    transform: scale3d(1.05, 0.95, 1);
+    -webkit-flex-grow: 3;
+    flex-grow: 3;
   }
   100% {
-    transform: scale3d(1, 1, 1);
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+}
+@media screen and (min-width: 768px) {
+  .flex-title-home {
+    transform: rotate(90deg);
+    top: 15%;
+    animation: aboutFlexSlide 3s 1;
+    animation-delay: 0s;
   }
 }
 
-.filters-container {
-  overflow: hidden;
-  padding: 0 3rem;
-  transition: max-height 0.4s ease-in-out;
-  max-height: var(--filters-container-height);
+@keyframes homeFlextitle {
+  0% {
+    transform: rotate(90deg);
+    top: 15%;
+  }
+  50% {
+    transform: rotate(0deg);
+    top: 15%;
+  }
+  100% {
+    transform: rotate(90deg);
+    top: 15%;
+  }
+}
+.flex-about-home {
+  opacity: 0;
+}
+@media screen and (min-width: 768px) {
+  .flex-about-home {
+    animation: aboutFlexSlide 3s 1;
+    animation-delay: 0s;
+  }
 }
 
-.filters-wrapper {
-  position: relative;
-  transition: opacity 0.2s ease-in-out;
-  opacity: var(--filters-wrapper-opacity);
+@keyframes flexAboutHome {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.about {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/beach-2089959_1280.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
-.filter-tabs {
-  border-radius: 1rem;
-  padding: 0.3rem;
-  overflow: hidden;
-  background-color: var(--orange-50);
+.contact-form {
+  width: 100%;
 }
 
-.filter-tabs li {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex: 1 0 33.33%;
+input {
+  width: 100%;
 }
 
-.filter-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.8rem;
-  flex-grow: 1;
-  height: 3rem;
-  padding: 0 1.5rem;
-  color: var(--orange-700);
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  font-size: 1.4rem;
+textarea {
+  width: 100%;
 }
 
-.filter-button.filter-active {
-  transition: color 0.4s ease-in-out;
-  color: var(--grey-900);
+.contact {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/lake-696098_1920.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
-.filter-slider {
-  pointer-events: none;
-  position: absolute;
-  padding: 0.3rem;
+.work {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/forest-208517_1280.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.spinner {
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
+  background: #222;
+  height: 100%;
+  width: 100%;
+  z-index: 11;
+  margin-top: 0;
+  color: #fff;
+  font-size: 1em;
 }
 
-.filter-slider-rect {
-  height: 3rem;
-  width: 33.33%;
-  border-radius: 0.8rem;
-  background-color: var(--white);
-  box-shadow: 0 0.1rem 1rem -0.4rem rgba(0, 0, 0, 0.12);
-  transition: transform 0.4s ease-in-out;
-  transform: translateX(var(--translate-filters-slider));
+.cube1, .cube2 {
+  background-color: #fff;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+  animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+
+.cube2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+@-webkit-keyframes sk-cubemove {
+  25% {
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  }
+  50% {
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+  }
+  75% {
+    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+  }
+}
+@keyframes sk-cubemove {
+  25% {
+    transform: translateX(42px) rotate(-90deg) scale(0.5);
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  }
+  50% {
+    transform: translateX(42px) translateY(42px) rotate(-179deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+  }
+  50.1% {
+    transform: translateX(42px) translateY(42px) rotate(-180deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+  }
+  75% {
+    transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+  }
+  100% {
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+  }
 }
 </style>
 
@@ -275,182 +313,74 @@ ul.main-tabs li {
 </head>
 
 <body translate="no" >
-  <nav class="amazing-tabs">
-  <div class="filters-container">
-    <div class="filters-wrapper">
-      <ul class="filter-tabs">
-        <li>
-          <button class="filter-button filter-active" data-translate-value="0">
-            New
-          </button>
-        </li>
-        <li>
-          <button class="filter-button" data-translate-value="100%">
-            Popular
-          </button>
-        </li>
-        <li>
-          <button class="filter-button" data-translate-value="200%">
-            Following
-          </button>
-        </li>
-      </ul>
-      <div class="filter-slider" aria-hidden="true">
-        <div class="filter-slider-rect">&nbsp;</div>
-      </div>
-    </div>
-  </div>
-  <div class="main-tabs-container">
-    <div class="main-tabs-wrapper">
-      <ul class="main-tabs">
-        <li>
-          <button class="round-button" data-translate-value="0" data-color="red">
-            <span class="avatar">
-              <img src="https://images.pexels.com/photos/3756985/pexels-photo-3756985.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="user avatar" />
-            </span>
-          </button>
-        </li>
-        <li>
-          <button class="round-button gallery active" style="--round-button-active-color: #2962ff" data-translate-value="100%" data-color="blue">
-            <svg fill="currentColor" viewBox="0 0 16 16">
-              <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-              <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button class="round-button" style="--round-button-active-color: #00c853" data-translate-value="200%" data-color="green">
-            <svg fill="currentColor" viewBox="0 0 16 16">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button class="round-button" style="--round-button-active-color: #aa00ff" data-translate-value="300%" data-color="purple">
-            <svg fill="currentColor" viewBox="0 0 16 16">
-              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button class="round-button" style="--round-button-active-color: #ff6d00" data-translate-value="400%" data-color="orange">
-            <svg fill="currentColor" viewBox="0 0 16 16">
-              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-            </svg>
-          </button>
-        </li>
-      </ul>
-      <div class="main-slider" aria-hidden="true">
-        <div class="main-slider-circle">&nbsp;</div>
-      </div>
-    </div>
-  </div>
-</nav>
+  <div class="flex-container">
+	<div class="spinner"><p>
+		<div class="cube1"></div>
+		<div class="cube2"></div>
+		Loading...
+		</p>
+	</div>
+	<div class="flex-slide home">
+		<div class="flex-title flex-title-home">Home</div>
+		<div class="flex-about flex-about-home"><a href="https://secretcity.xyz/"></a></div>
+	</div>
+	<div class="flex-slide about">
+		<div class="flex-title">About</div>
+		<div class="flex-about"><p>Click here to navigate to the About section of the website</p></div>
+	</div>
+	<div class="flex-slide work">
+		<div class="flex-title">Work</div>
+		<div class="flex-about"><p>Listing relevant snippets of work:</p>
+			<ul>
+				<li>First piece of work</li>
+				<li>Second piece of work</li>
+				<li>Third piece of work</li>
+			</ul>
+		</div>
+	</div>
+	<div class="flex-slide contact">
+		<div class="flex-title">Contact</div>
+				<div class="flex-about">
+					<p>Use the contact form below</p>
+					<form class="contact-form">
+						<p>Email <input type="text" name="email"></p>
+						<p>Comment <textarea type="text" name="comment" row="5"></textarea></p>
+						<p><input type="submit" name="email" value="Send Message"></p>
+					</form>
+
+		</div>
+	</div>
+</div>
     <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
 
-  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/jquery.waitforimages.min.js'></script>
       <script id="rendered-js" >
-// resources in description
-const mainTabs = document.querySelector(".main-tabs");
-const mainSliderCircle = document.querySelector(".main-slider-circle");
-const roundButtons = document.querySelectorAll(".round-button");
+(function () {
+  $('.flex-container').waitForImages(function () {
+    $('.spinner').fadeOut();
+  }, $.noop, true);
 
-const colors = {
-  blue: {
-    50: {
-      value: "#e3f2fd" },
+  $(".flex-slide").each(function () {
+    $(this).hover(function () {
+      $(this).find('.flex-title').css({
+        transform: 'rotate(0deg)',
+        top: '10%' });
 
-    100: {
-      value: "#bbdefb" } },
+      $(this).find('.flex-about').css({
+        opacity: '1' });
 
+    }, function () {
+      $(this).find('.flex-title').css({
+        transform: 'rotate(90deg)',
+        top: '15%' });
 
-  green: {
-    50: {
-      value: "#e8f5e9" },
+      $(this).find('.flex-about').css({
+        opacity: '0' });
 
-    100: {
-      value: "#c8e6c9" } },
-
-
-  purple: {
-    50: {
-      value: "#f3e5f5" },
-
-    100: {
-      value: "#e1bee7" } },
-
-
-  orange: {
-    50: {
-      value: "#ffe0b2" },
-
-    100: {
-      value: "#ffe0b2" } },
-
-
-  red: {
-    50: {
-      value: "#ffebee" },
-
-    100: {
-      value: "#ffcdd2" } } };
-
-
-
-
-const getColor = (color, variant) => {
-  return colors[color][variant].value;
-};
-
-const handleActiveTab = (tabs, event, className) => {
-  tabs.forEach(tab => {
-    tab.classList.remove(className);
+    });
   });
-
-  if (!event.target.classList.contains(className)) {
-    event.target.classList.add(className);
-  }
-};
-
-mainTabs.addEventListener("click", event => {
-  const root = document.documentElement;
-  const targetColor = event.target.dataset.color;
-  const targetTranslateValue = event.target.dataset.translateValue;
-
-  if (event.target.classList.contains("round-button")) {
-    mainSliderCircle.classList.remove("animate-jello");
-    void mainSliderCircle.offsetWidth;
-    mainSliderCircle.classList.add("animate-jello");
-
-    root.style.setProperty("--translate-main-slider", targetTranslateValue);
-    root.style.setProperty("--main-slider-color", getColor(targetColor, 50));
-    root.style.setProperty("--background-color", getColor(targetColor, 100));
-
-    handleActiveTab(roundButtons, event, "active");
-
-    if (!event.target.classList.contains("gallery")) {
-      root.style.setProperty("--filters-container-height", "0");
-      root.style.setProperty("--filters-wrapper-opacity", "0");
-    } else {
-      root.style.setProperty("--filters-container-height", "3.8rem");
-      root.style.setProperty("--filters-wrapper-opacity", "1");
-    }
-  }
-});
-
-const filterTabs = document.querySelector(".filter-tabs");
-const filterButtons = document.querySelectorAll(".filter-button");
-
-filterTabs.addEventListener("click", event => {
-  const root = document.documentElement;
-  const targetTranslateValue = event.target.dataset.translateValue;
-
-  if (event.target.classList.contains("filter-button")) {
-    root.style.setProperty("--translate-filters-slider", targetTranslateValue);
-    handleActiveTab(filterButtons, event, "filter-active");
-  }
-});
+})();
 //# sourceURL=pen.js
     </script>
 
