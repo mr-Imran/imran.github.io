@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - Gift Cards With Flying Chefs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+  
+  
+  
+<style>
+@keyframes reappear {
+  from {
+    top: 0px;
+  }
+  to {
+    top: -50px;
+  }
+}
+html,
+body {
+  background-color: #1e1e1e;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+}
+
+.roboto-mono {
+  font-family: "Roboto Mono", monospace;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+body .background-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body #card-display-background {
+  background-image: url("https://wallpaperaccess.com/full/707055.jpg");
+  height: 100%;
+  left: 50%;
+  max-width: 1800px;
+  opacity: 0.25;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
+}
+body #card-display-background:after, body #card-display-background:before {
+  content: "";
+  height: inherit;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: inherit;
+  z-index: 1;
+}
+body #card-display-background:after {
+  background: linear-gradient(to top, #1e1e1e, transparent, #1e1e1e);
+}
+body #card-display-background:before {
+  background: linear-gradient(to right, #1e1e1e 5%, transparent 20%, transparent 80%, #1e1e1e 95%);
+}
+body #card-display-wrapper {
+  position: relative;
+  transition: transform 250ms;
+  z-index: 2;
+}
+body #card-display-wrapper #card-display {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+body #card-display-wrapper #card-display.transition {
+  transition: transform 500ms;
+}
+body #card-display-wrapper #card-display .card-wrapper {
+  background-color: transparent;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  padding: 0px;
+  position: relative;
+  transition: transform 250ms;
+}
+body #card-display-wrapper #card-display .card-wrapper:first-of-type {
+  transform: scale(0.85);
+}
+body #card-display-wrapper #card-display .card-wrapper:first-of-type .card {
+  background-color: #ef5350;
+}
+body #card-display-wrapper #card-display .card-wrapper:nth-of-type(2) {
+  transform: scale(0.95);
+}
+body #card-display-wrapper #card-display .card-wrapper:last-of-type {
+  transform: scale(0.85);
+}
+body #card-display-wrapper #card-display .card-wrapper:last-of-type .card {
+  background-color: #29b6f6;
+}
+body #card-display-wrapper #card-display .card-wrapper:hover {
+  transform: scale(1);
+}
+body #card-display-wrapper #card-display .card-wrapper:hover .card .card-svgs .svg-left {
+  transform: translate(-30%, -30%);
+}
+body #card-display-wrapper #card-display .card-wrapper:hover .card .card-svgs .svg-right {
+  transform: translate(30%, -30%);
+}
+body #card-display-wrapper #card-display .card-wrapper:hover .card .card-icon {
+  transform: translate(-20px, 20%) scale(1.2) rotate(-10deg);
+}
+body #card-display-wrapper #card-display .card-wrapper:hover .card-chef {
+  opacity: 1;
+  top: -50px;
+}
+body #card-display-wrapper #card-display .card-wrapper:active {
+  transform: scale(0.95);
+}
+body #card-display-wrapper #card-display .card-wrapper:active .card .card-svgs .svg-left {
+  transform: translate(-30%, -30%) scale(1.2);
+}
+body #card-display-wrapper #card-display .card-wrapper:active .card .card-svgs .svg-right {
+  transform: translate(30%, -30%) scale(1.2);
+}
+body #card-display-wrapper #card-display .card-wrapper:active .card .card-icon {
+  transform: translate(-20px, 20%) scale(1.4) rotate(-10deg);
+}
+body #card-display-wrapper #card-display .card-wrapper.selected .card-chef {
+  opacity: 0;
+  top: -500px;
+  transition: opacity 500ms, top 500ms;
+}
+body #card-display-wrapper #card-display .card-wrapper.chef-reappear .card-chef {
+  animation: reappear 250ms ease-in;
+}
+body #card-display-wrapper #card-display .card-wrapper:not(.chef-reappear, .selected):active .card-chef {
+  top: -20px;
+}
+body #card-display-wrapper #card-display .card-wrapper .card {
+  background-color: #141414;
+  border-radius: inherit;
+  box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  height: 300px;
+  position: relative;
+  width: 485px;
+  z-index: 2;
+}
+body #card-display-wrapper #card-display .card-wrapper .card .card-svgs {
+  border-radius: inherit;
+  height: 100%;
+  left: 0px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 2;
+}
+body #card-display-wrapper #card-display .card-wrapper .card .card-svgs .svg {
+  opacity: 0.1;
+  position: absolute;
+  transition: transform 250ms;
+}
+body #card-display-wrapper #card-display .card-wrapper .card .card-svgs .svg-left {
+  left: 0px;
+  top: 50%;
+  transform: translate(-25%, -25%);
+}
+body #card-display-wrapper #card-display .card-wrapper .card .card-svgs .svg-right {
+  right: 0px;
+  top: -50%;
+  transform: translate(25%, -25%);
+}
+body #card-display-wrapper #card-display .card-wrapper .card .card-amount {
+  bottom: 0px;
+  color: white;
+  font-size: 5em;
+  left: 0px;
+  position: absolute;
+  transform: translate(20px, -20px);
+}
+body #card-display-wrapper #card-display .card-wrapper .card .card-brand {
+  color: white;
+  font-size: 2.5em;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  transform: translate(-30px, 30px);
+  transition: transform 250ms;
+}
+body #card-display-wrapper #card-display .card-wrapper .card .card-icon {
+  bottom: 0px;
+  color: white;
+  font-size: 10em;
+  position: absolute;
+  right: 0px;
+  transform: translate(-20px, 20%);
+  transition: transform 250ms;
+}
+body #card-display-wrapper #card-display .card-wrapper .card-chef {
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 250ms, top 250ms;
+  z-index: 1;
+}
+body #card-display-wrapper #card-display .card-wrapper .card-chef i {
+  color: white;
+  text-align: center;
+}
+body #card-display-wrapper #card-display .card-wrapper .card-chef .fa-person-military-pointing {
+  color: white;
+  font-size: 3.5em;
+  height: 60px;
+  line-height: 60px;
+  width: 50px;
+}
+body #card-display-wrapper #card-display .card-wrapper .card-chef .fa-fire {
+  bottom: 0px;
+  font-size: 2em;
+  left: 50%;
+  position: absolute;
+  transform: rotate(180deg) translate(50%, -90%);
+}
+
+#youtube-link {
+  align-items: center;
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  bottom: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 5px;
+  left: 10px;
+  padding: 10px 20px;
+  position: absolute;
+  text-decoration: none;
+  z-index: 1;
+}
+#youtube-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+#youtube-link i, #youtube-link span {
+  height: 20px;
+  line-height: 20px;
+}
+#youtube-link i {
+  color: #ef5350;
+}
+#youtube-link span {
+  color: white;
+}
+
+@media (max-width: 1700px) {
+  #card-display-wrapper {
+    transform: scale(0.8);
+  }
+}
+@media (max-width: 1300px) {
+  #card-display-wrapper {
+    transform: scale(0.5);
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <div id="card-display-background" class="background-image"></div>
+<div id="card-display-wrapper">
+  <div id="card-display">
+    <button id="card-1" class="card-wrapper" type="button">
+      <div class="card">
+        <div class="card-svgs">
+          
+          
+        </div>
+        <span class="card-amount roboto-mono"></span>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <h1><i class="fa-solid fa-shield-check">SAFE ZONE</i></h1>
+        <i class="card-icon fa fa-location-check"></i>
+        
+      
+      </div>
+      <div class="card-chef">
+        <i class="fa-solid fa-person-military-pointing"></i>
+        <i class="fa-regular fa-fire"></i>
+      </div>
+
+
+     
+    </button>
+    <button id="card-2" class="card-wrapper" type="button">
+      <div class="card">
+        <div class="card-svgs">
+          <svg class="svg svg-left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#F2F4F8" d="M38.4,-55.8C50.9,-51.7,63,-43,61.2,-32.2C59.4,-21.5,43.8,-8.7,41.7,6C39.7,20.8,51.1,37.5,48.4,43.5C45.7,49.6,28.8,45,15.7,44.9C2.6,44.9,-6.6,49.4,-20.9,53.4C-35.2,57.3,-54.5,60.7,-61.1,53C-67.6,45.3,-61.4,26.6,-60.3,10.8C-59.3,-5,-63.4,-17.9,-57.3,-23.9C-51.1,-30,-34.6,-29.1,-23.3,-33.7C-12.1,-38.4,-6,-48.7,3.5,-54.1C12.9,-59.4,25.9,-59.9,38.4,-55.8Z" transform="translate(100 100)" />
+          </svg>
+          
+        </div>
+        <span class="card-amount roboto-mono">$100</span>
+        <i class="card-brand fa-solid fa-fork-knife"></i>
+        <i class="card-icon fa-duotone fa-burger-soda"></i>
+      </div>
+      <div class="card-chef">
+        <i class="fa-solid fa-user-chef"></i>
+        <i class="fa-regular fa-fire"></i>
+      </div>
+    </button>
+    <button id="card-3" class="card-wrapper" type="button">
+      <div class="card">
+        <div class="card-svgs">
+          <svg class="svg svg-left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#F2F4F8" d="M14.8,-26.2C19.7,-19.9,24.6,-16.7,34.9,-11C45.3,-5.3,61.1,2.9,61.1,9.4C61,15.8,45.1,20.5,35.9,31.1C26.7,41.7,24.3,58.2,15.9,66C7.5,73.9,-6.8,73,-18.8,67.8C-30.7,62.5,-40.2,52.8,-45.9,42.1C-51.7,31.4,-53.7,19.7,-48.8,10.9C-44,2.2,-32.3,-3.6,-29.9,-15.5C-27.4,-27.4,-34.1,-45.4,-30.6,-52.4C-27.2,-59.3,-13.6,-55.1,-4.3,-48.4C5,-41.7,9.9,-32.4,14.8,-26.2Z" transform="translate(100 100)" />
+          </svg>
+            
+        </div>
+        <span class="card-amount roboto-mono">$2222</span>
+        <i class="card-brand fa-solid fa-fork-knife"></i>
+        <i class="card-icon fa-duotone fa-donut"></i>
+      </div>
+      <div class="card-chef">
+        <i class="fa-solid fa-user-chef"></i>
+        <i class="fa-regular fa-fire"></i>
+      </div>
+    </button>
+  </div>
+</div>
+
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <script src='https://kit.fontawesome.com/86933bf68b.js'></script>
+      <script id="rendered-js" >
+const DOM = {
+  class: {
+    add: (element, name, delay) => element.classList.add(name),
+    get: (element, name) => element.getElementsByClassName(name),
+    has: (element, name) => element.classList.contains(name),
+    remove: (element, name) => element.classList.remove(name),
+    transition: (element, name, duration) => {
+      if (DOM.class.has(element, name)) {
+        DOM.class.remove(element, name);
+      }
+
+      DOM.class.add(element, name);
+
+      setTimeout(() => DOM.class.remove(element, name), duration);
+    } },
+
+  get: id => document.getElementById(id) };
+
+
+const N = {
+  clamp: (min, value, max) => Math.min(Math.max(min, value), max) };
+
+
+const T = {
+  range: (value, percent) => {
+    if (percent >= 0.5) {
+      const p = (percent - 0.5) / 0.5;
+
+      return -1 * value * p;
+    }
+
+    const p = (0.5 - percent) / 0.5;
+
+    return value * p;
+  } };
+
+
+const display = DOM.get("card-display");
+
+const card1 = DOM.get("card-1"),
+card2 = DOM.get("card-2"),
+card3 = DOM.get("card-3");
+
+display.onmousemove = e => {
+  const rect = display.getBoundingClientRect();
+
+  const x = e.clientX - rect.left,
+  y = e.clientY - rect.top;
+
+  const xPercent = x / display.clientWidth,
+  yPercent = y / display.clientHeight;
+
+  const xDeg = T.range(-10, yPercent),
+  yDeg = T.range(10, xPercent);
+
+  display.style.transform = `perspective(1200px) rotateX(${xDeg}deg) rotateY(${yDeg}deg)`;
+};
+
+display.onmouseleave = e => {
+  DOM.class.transition(display, "transition", 500);
+
+  display.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg)`;
+};
+
+const moveChef = (e, element) => {
+  const rect = element.getBoundingClientRect(),
+  chef = DOM.class.get(element, "card-chef")[0];
+
+  const x = e.clientX - rect.left,
+  y = e.clientY - rect.top;
+
+  const percent = x / element.clientWidth;
+
+  const half = chef.clientWidth / 2,
+  value = element.clientWidth * percent - half,
+  max = element.clientWidth - chef.clientWidth * 1.5;
+
+  const tX = N.clamp(half, value, max);
+
+  chef.style.transform = `translateX(${tX}px)`;
+};
+
+const releaseCard = element => {
+  if (!DOM.class.has(element, "selected") && !DOM.class.has(element, "chef-reappear")) {
+    DOM.class.transition(element, "selected", 1000);
+
+    setTimeout(() => DOM.class.transition(element, "chef-reappear", 250), 1000);
+  }
+};
+
+card1.onmousemove = e => moveChef(e, card1);
+
+card1.onmouseup = e => releaseCard(card1);
+
+card2.onmousemove = e => moveChef(e, card2);
+
+card2.onmouseup = e => releaseCard(card2);
+
+card3.onmousemove = e => moveChef(e, card3);
+
+card3.onmouseup = e => releaseCard(card3);
+//# sourceURL=pen.js
+    </script>
+
+  
+
+</body>
+
+</html>
+ 
