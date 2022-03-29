@@ -18,12 +18,12 @@
 	<link rel="mask-icon" type="image/x-icon"
 		href="https://images-ext-1.discordapp.net/external/Sr1E1mHwKsT3idp0ETV8XrSaDnSoEODZIMnvGRgLHyg/%3Fwidth%3D679%26height%3D683/https/media.discordapp.net/attachments/852862126976139284/930473088422932500/discord.png"
 		color="#111" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+  
   <title>Secret UI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
-  
-  
+
+  </head>
   
 <style>
 /* -- */
@@ -188,7 +188,9 @@ body input, body h1, body h3, body a, body span {
   z-index: 1;
 }
 #app #app-background #app-background-image {
-  background-image: url("https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80");
+  background-image: url("https://cdn.wallpapersafari.com/69/48/jpfLW0.jpg");
+  background-size: cover;
+  
   height: 100%;
   transition: filter 250ms, transform 250ms;
   width: 100%;
@@ -828,7 +830,7 @@ var UserStatus;
 })(UserStatus || (UserStatus = {}));
 var Default;
 (function (Default) {
-    Default["PIN"] = "1234";
+    Default["PIN"] = "5555";
 })(Default || (Default = {}));
 var WeatherType;
 (function (WeatherType) {
@@ -871,6 +873,7 @@ const LogInUtility = {
         });
     }
 };
+
 const useCurrentDateEffect = () => {
     const [date, setDate] = React.useState(new Date());
     React.useEffect(() => {
