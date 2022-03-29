@@ -1,317 +1,193 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+  <link rel="stylesheet" href="/assets/css/contactpage.css">
 
-	<meta charset="UTF-8">
-
-	<link rel="apple-touch-icon" type="image/png"
-		href="https://images-ext-1.discordapp.net/external/Sr1E1mHwKsT3idp0ETV8XrSaDnSoEODZIMnvGRgLHyg/%3Fwidth%3D679%26height%3D683/https/media.discordapp.net/attachments/852862126976139284/930473088422932500/discord.png" />
-	<meta name="apple-mobile-web-app-title" content="CodePen">
-
-	<link rel="shortcut icon" type="image/x-icon"
-		href="https://images-ext-1.discordapp.net/external/Sr1E1mHwKsT3idp0ETV8XrSaDnSoEODZIMnvGRgLHyg/%3Fwidth%3D679%26height%3D683/https/media.discordapp.net/attachments/852862126976139284/930473088422932500/discord.png" />
-
-	<link rel="mask-icon" type="image/x-icon"
-		href="https://images-ext-1.discordapp.net/external/Sr1E1mHwKsT3idp0ETV8XrSaDnSoEODZIMnvGRgLHyg/%3Fwidth%3D679%26height%3D683/https/media.discordapp.net/attachments/852862126976139284/930473088422932500/discord.png"
-		color="#111" />
-
-
-	<title>Secret City</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-		rel="stylesheet">
-
-
-  
-<style>
-@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  font-family: "Source Code Pro", monospace;
-  font-size: 3rem;
-  line-height: 3rem;
-  font-weight: 100;
-  color: #fff;
-}
-
-html {
-  font-size: 62.5%;
-  overflow-x: hidden;
-}
-
-body {
-  box-sizing: border-box;
-  overflow-x: hidden;
-  background-color: #262639;
-}
-
-.editor {
-  position: relative;
-  min-height: 60vh;
-  width: 60vw;
-  margin: 75px auto;
-  border-radius: 0.5rem;
-  border: 0.1rem solid #000;
-  background-color: #2e2e2f;
-  box-shadow: 0 0.2rem 0.3rem black;
-  counter-reset: codeNum;
-}
-.editor__tabs {
-  display: block;
-  position: relative;
-  height: 5%;
-  z-index: 1000;
-  background-color: #191919;
-}
-.editor__tabs h1 {
-  display: inline-block;
-  height: 100%;
-  margin-left: 3%;
-  padding: 0 1rem;
-  background-color: #2e2e2f;
-  border-radius: 0.3rem 0.3rem 0 0;
-  border-top: 1px solid #90907C;
-  font-size: 1.8rem;
-  line-height: 3rem;
-  color: #90907C;
-  font-family: "anglecia-pro-display";
-  vertical-align: baseline;
-}
-.editor__lines {
-  list-style-type: none;
-  height: 95%;
-  width: 97%;
-  margin-left: 3%;
-}
-.editor__lines li {
-  min-height: 3.5rem;
-}
-.editor__lines li:before {
-  content: counter(codeNum);
-  counter-increment: codeNum;
-  position: absolute;
-  left: 0;
-  width: 3%;
-  padding-right: 0.5rem;
-  color: #2e2e2f;
-  text-align: right;
-  font-size: 2.2rem;
-}
-.editor__lines:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #191919;
-  height: 100%;
-  width: 3%;
-}
-.editor__content {
-  margin-left: 1.3rem;
-  font-size: 1.9rem;
-  line-height: 1.9rem;
-  font-weight: 100;
-  font-family: "anglecia-pro-display";
-}
-.editor__content--indent {
-  margin-left: 6rem;
-}
-.editor__content span {
-  font-size: 1.9rem;
-  line-height: 1.9rem;
-  font-weight: 100;
-  font-family: "anglecia-pro-display";
-}
-.editor__input-box {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 0.5rem;
-  background-color: #282829;
-  font-size: 1.6rem;
-  line-height: 2.6rem;
-  font-family: "anglecia-pro-display";
-  padding: 0.2rem 1rem;
-  overflow: hidden;
-}
-.editor__input-box:hover {
-  border: 1px solid #90907C;
-  background-color: #191919;
-}
-.editor__input-box:active {
-  border: 1px solid #90907C;
-  background-color: #191919;
-}
-.editor__input-box:focus {
-  border: 1px solid #90907C;
-  outline: none;
-  caret-color: #FD971F;
-  background-color: #191919;
-}
-.editor__input-button {
-  padding: 0.5rem 1rem;
-  background-color: #A6E22E;
-}
-.editor__input-button:focus {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  background-color: #A6E22E;
-}
-.editor__input-button:hover {
-  border: 1px solid #90907C;
-  background-color: #c7ff57;
-  cursor: pointer;
-}
-.editor__input-button:active {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
-  background-color: #93c828;
-}
-.editor__textarea {
-  margin-left: 10rem;
-  min-height: 125px;
-  min-width: 40%;
-  width: 85%;
-  max-width: 85%;
-  padding: 1rem;
-}
-
-.monokai-comment {
-  color: #90907C;
-}
-
-.monokai-text {
-  color: #F5F5EC;
-}
-
-.monokai-string {
-  color: #FFE792;
-}
-
-.monokai-element {
-  color: #F92672;
-}
-
-.monokai-attribute {
-  color: #A6E22E;
-}
-</style>
-
-  <script>
-  window.console = window.console || function(t) {};
-</script>
-
-  
-  
-  <script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
-</script>
-
-
+  <title>SC Contact</title>
 </head>
 
-<body translate="no" >
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Contact Form IDE</title>
-</head>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">SCB  </a>
+</nav>
+
 <body>
-	<div class="editor">
-		<span class="editor__tabs">
-			<h1>contact.html</h1>
-		</span>
 
-		<ul class="editor__lines">
-			<li>
-				<span class="editor__content monokai-text">
-					&lt;<span class="monokai-element">form</span> <span class="monokai-attribute">class</span>=<span class="monokai-string">"contact"</span>&gt;
-				</span>
-			</li>
-			
-			<li>
-				<span class="editor__content editor__content--indent monokai-text">
-					&lt;<span class="monokai-element">label</span> <span class="monokai-attribute">for</span>=<span class="monokai-string">"name"</span>&gt;Full name:&lt;/<span class="monokai-element">label</span>&gt;
-				</span>
-			</li>
-			
-			<li>
-				<span class="editor__content editor__content--indent monokai-text">
-					&lt;<span class="monokai-element">input</span> <span class="monokai-attribute">type</span>=<span class="monokai-string">"text"</span> <span class="monokai-attribute">value</span>=<span class="monokai-string">" <input type="text" placeholder="John Doe" class="editor__input-box editor__input-name"> "</span>/&gt;
-				</span>
-			</li>
-			
-			<li>
-				<span class="editor__content">&nbsp;</span>
-			</li>
-			
-			<li>
-				<span class="editor__content editor__content--indent monokai-text">
-					&lt;<span class="monokai-element">label</span> <span class="monokai-attribute">for</span>=<span class="monokai-string">"email"</span>&gt;Email Address:&lt;/<span class="monokai-element">label</span>&gt;
-				</span>
-			</li>
-			
-			<li>
-				<span class="editor__content editor__content--indent monokai-text">
-					&lt;<span class="monokai-element">input</span> <span class="monokai-attribute">type</span>=<span class="monokai-string">"text"</span> <span class="monokai-attribute">value</span>=<span class="monokai-string">" <input type="text" placeholder="JDoe@example.com" class="editor__input-box editor__input-name"> "</span>/&gt;
-				</span>
-			</li>
-			
-			<li>
-				<span class="editor__content">&nbsp;</span>
-			</li>
-			
-			<li>
-				<span class="editor__content editor__content--indent monokai-comment">&lt;!-- Your message here --&gt;</span>
-			</li>
-			
-			<li>
-				<span class="editor__content editor__content--indent monokai-text">
-					&lt;<span class="monokai-element">textarea</span> <span class="monokai-attribute">id</span>=<span class="monokai-string">"message"</span>&gt;<br>
-				<textarea class="editor__input-box editor__textarea"></textarea>
-				</span>
-			</li>
-			
-			<li>
-				<span class="editor__content editor__content--indent">&lt;/<span class="monokai-element">textarea</span>&gt;</span>
-			</li>
-			
-			<li>
-				<span class="editor__content">&nbsp;</span>
-			</li>
-			
-			<li>
-				<span class="editor__content editor__content--indent monokai-text">
-					&lt;<span class="monokai-element">input</span> <span class="monokai-attribute">type</span>=<span class="monokai-string">"button"</span> <span class="monokai-attribute">onclick</span>=<span class="monokai-string">"<input herf="https://discord.gg/s66nhMGQvm" class="editor__input-box editor__input-button" type="button" value="Submit">"</span>/&gt;
-				</span>
-			</li>
-			
-			<li>
-				<span class="editor__content monokai-text">
-					&lt;/<span class="monokai-element">form</span>&gt;
-				</span>
-			</li>
-		</ul>
-	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+  }
+  
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 5;
+    min-width: 100%; 
+    min-height: 100%;
+  }
+  
+  .content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  #myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #myBtn:hover {
+    background: #ddd;
+    color: black;
+  }
+
+
+  p {
+    font-size: 20px;
+    font-family: Arial;
+    color: #fff;
+    text-align: center;
+    scale: 1.5;
+
+  }
+  </style>
+  <!--Menu-->
+  
+  <video autoplay muted loop id="myVideo">
+    <source src="/assets/video/err.mp4" type="video/mp4">
+  </video>
+  
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1>Contact Us</h1>
+        <form action="contact.php" method="post">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea class="form-control" name="message" id="message" rows="5" placeholder="Enter Message"></textarea>   
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+<br>
+<br>
+<br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+
+
+
+
+  <div class="copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+            &copy; 2022 All Rights Reserved. | Team Secret
+          </p>
+        </div>
+        
+      </div>
+    </div>
+
+  <script>
+    var video = document.getElementById("myVideo");
+    var btn = document.getElementById("myBtn");
+    
+    function myFunction() {
+      if (video.paused) {
+        video.play();
+        btn.innerHTML = "Pause";
+      } else {
+        video.pause();
+        btn.innerHTML = "Play";
+      }
+    }
+    </script>
+    
+  
 </body>
 </html>
-  
-  
-  
-  
-
-</body>
-
-</html>
- 
