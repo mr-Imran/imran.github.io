@@ -1,0 +1,138 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>Teleport</title>
+  
+  
+  
+  
+<style>
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --full-width: 100%;
+  --max-width: 62.5rem;
+  --min-width: 22.5rem;
+  --flex-flow: 35rem;
+  --space: 1rem;
+  --conditional-space: clamp(0px, (30rem - 100%) * 999, 1rem);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    45deg,
+    hsl(236, 100%, 80%, 0.4),
+    rgba(205, 155, 225, 0.3)
+  );
+}
+
+
+.container {
+  width: clamp(var(--flex-flow), 100%, var(--max-width));
+  padding-block: var(--space);
+  min-width: var(--min-width);
+}
+
+.container__flex-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space);
+  margin-inline: var(--conditional-space);
+}
+
+.container__flex-flow > * {
+  flex-grow: 1;
+  flex-basis: calc((var(--flex-flow) - var(--full-width)) * 999);
+}
+
+.card {
+  display: flex;
+  min-width: 20rem;
+  overflow: hidden;
+  border-radius: clamp(0px, (40vw - var(--full-width)), var(--space));
+  box-shadow: rgb(40, 40, 40, 0.1) 0px 2px 3px, rgb(20, 20, 20, 0.2) 0px 5px 8px,
+    rgb(0, 0, 0, 0.25) 0px 10px 12px;
+}
+
+.card > img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  /* aspect-ratio: 16 / 9; */
+  transition: transform 700ms ease;
+}
+
+.card:hover img {
+  transform: scale(1.2);
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <main class="container">
+  <div class="container__flex-flow">
+    <div class="card">
+      <img src="https://media.discordapp.net/attachments/897139332895367257/959095166973665370/unknown.png?width=1214&height=683" alt="">
+    </div>
+    <div class="card">
+      <img src="https://media.discordapp.net/attachments/861138668986171413/958447979293966386/unknown.png?width=1214&height=683" alt="">
+    </div>
+    <div class="card">
+      <img src="https://media.discordapp.net/attachments/861138668986171413/958448232613171220/unknown.png?width=1214&height=683" alt="">
+    </div>
+    <div class="card">
+      <img src="https://media.discordapp.net/attachments/861138668986171413/958448793169317938/unknown.png?width=1214&height=683" alt="">
+    </div>
+    <div class="card">
+      <img src="https://media.discordapp.net/attachments/861138668986171413/958449041652473938/unknown.png?width=1214&height=683" alt="">
+    </div>
+
+  </div>
+</main>
+  
+  
+  
+  
+
+</body>
+
+</html>
+ 
